@@ -36,7 +36,7 @@ app.add_middleware(
         "http://localhost:5173", 
         "http://127.0.0.1:5173",
         "http://localhost:5175",  # Vite might use different port
-        "https://video-proctoring-pdjedves0-farhan7479s-projects.vercel.app",  # Your Vercel domain
+        "https://video-proctoring-web-1.onrender.com",  # Your Vercel domain
         "https://*.vercel.app",  # All Vercel domains
         "https://vercel.app"     # Vercel root
     ],
@@ -499,20 +499,81 @@ async def export_session_pdf(session_id: str):
             </div>
             
             <div class="section">
-                <h2>Alert Timeline</h2>
+                <h2>Complete Alert Timeline</h2>
+                <p><strong>Total Alerts:</strong> {len(report.get('alerts', []))}</p>
         """
         
-        for alert in report.get('alerts', [])[:10]:  # Show first 10 alerts
+        # Show ALL alerts, not just first 10
+        for alert in report.get('alerts', []):
             severity_class = alert.get('severity', 'info')
             if severity_class == 'high': severity_class = 'alert'
             elif severity_class == 'medium': severity_class = 'warning'
             else: severity_class = 'success'
             
+            # Get additional details for the alert
+            details = alert.get('details', {})
+            details_text = ""
+            if details:
+                if isinstance(details, dict):
+                    details_items = []
+                    for key, value in details.items():
+                        if key == 'objects' and isinstance(value, list):
+                            details_items.append(f"Objects: {', '.join(value)}")
+                        else:
+                            details_items.append(f"{key}: {value}")
+                    if details_items:
+                        details_text = f"<br><small>Details: {'; '.join(details_items)}</small>"
+                else:
+                    details_text = f"<br><small>Details: {details}</small>"
+            
             html_content += f"""
                 <div class="alert {severity_class}">
                     <strong>{alert.get('timestamp', '')}:</strong> {alert.get('message', '')}
+                    {details_text}
                 </div>
             """
+        
+        html_content += """
+            </div>
+            
+            <div class="section">
+                <h2>Complete Session Log</h2>
+                <p>All events recorded during the session:</p>
+        """
+        
+        # Load and display ALL session events (not just alerts)
+        try:
+            session_events = await proctor_logger._load_session_events(session_id)
+            html_content += f"<p><strong>Total Events:</strong> {len(session_events)}</p>"
+            
+            if session_events:
+                html_content += "<table><tr><th>Timestamp</th><th>Event Type</th><th>Details</th></tr>"
+                
+                for event in session_events:
+                    event_type = event.get('event_type', 'Unknown')
+                    timestamp = event.get('timestamp', '')
+                    event_data = event.get('data', {})
+                    
+                    # Format event data for display
+                    data_str = ""
+                    if isinstance(event_data, dict):
+                        data_parts = []
+                        for key, value in event_data.items():
+                            if key == 'objects' and isinstance(value, list):
+                                data_parts.append(f"Objects: {', '.join(value)}")
+                            else:
+                                data_parts.append(f"{key}: {value}")
+                        data_str = "; ".join(data_parts)
+                    else:
+                        data_str = str(event_data)
+                    
+                    html_content += f"<tr><td>{timestamp}</td><td>{event_type}</td><td>{data_str}</td></tr>"
+                
+                html_content += "</table>"
+            else:
+                html_content += "<p>No events recorded for this session.</p>"
+        except Exception as e:
+            html_content += f"<p>Error loading session events: {e}</p>"
         
         html_content += """
             </div>
