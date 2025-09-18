@@ -32,7 +32,14 @@ app = FastAPI(
 # CORS middleware for frontend communication
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=[
+        "http://localhost:5173", 
+        "http://127.0.0.1:5173",
+        "http://localhost:5175",  # Vite might use different port
+        "https://video-proctoring-pdjedves0-farhan7479s-projects.vercel.app",  # Your Vercel domain
+        "https://*.vercel.app",  # All Vercel domains
+        "https://vercel.app"     # Vercel root
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -98,13 +105,33 @@ def decode_base64_image(base64_string: str) -> np.ndarray:
         logger.error(f"Error decoding image: {e}")
         return None
 
+# Frame processing optimization
+frame_cache = {}
+last_processing_time = {}
+
 async def process_frame(frame: np.ndarray, session_id: str) -> DetectionResult:
-    """Process a single frame through all detection models"""
+    """Process a single frame through all detection models with optimization"""
     try:
+        current_time = asyncio.get_event_loop().time()
+        
+        # Skip processing if last processing was too recent (rate limiting)
+        if session_id in last_processing_time:
+            if current_time - last_processing_time[session_id] < 1.0:  # Min 1 second between processing
+                # Return last cached result if available
+                if session_id in frame_cache:
+                    return frame_cache[session_id]
+        
+        last_processing_time[session_id] = current_time
+        
+        # Resize frame for faster processing (50% reduction)
+        height, width = frame.shape[:2]
+        new_height, new_width = height // 2, width // 2
+        resized_frame = cv2.resize(frame, (new_width, new_height))
+        
         # Run detections in parallel for better performance
-        face_task = asyncio.create_task(face_detector.detect(frame))
-        object_task = asyncio.create_task(object_detector.detect(frame))
-        gaze_task = asyncio.create_task(gaze_detector.detect(frame))
+        face_task = asyncio.create_task(face_detector.detect(resized_frame))
+        object_task = asyncio.create_task(object_detector.detect(resized_frame))
+        gaze_task = asyncio.create_task(gaze_detector.detect(resized_frame))
         
         # Wait for all detections to complete
         face_result = await face_task
@@ -130,6 +157,9 @@ async def process_frame(frame: np.ndarray, session_id: str) -> DetectionResult:
             
             integrity_score=calculate_integrity_score(face_result, object_result, gaze_result)
         )
+        
+        # Cache the result for potential reuse
+        frame_cache[session_id] = result
         
         # Log significant events
         if result.face_count == 0:

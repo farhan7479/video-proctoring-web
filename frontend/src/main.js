@@ -1,5 +1,11 @@
 import './style.css'
 
+// API Configuration
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8000'
+const WS_BASE = API_BASE.replace(/^http/, 'ws')
+console.log('🌐 API Base URL:', API_BASE)
+console.log('📡 WebSocket Base URL:', WS_BASE)
+
 // Application State
 const AppState = {
   isSessionActive: false,
@@ -150,7 +156,7 @@ const websocket = {
 
   connect(sessionId) {
     try {
-      this.connection = new WebSocket(`ws://localhost:8000/ws/${sessionId}`)
+      this.connection = new WebSocket(`${WS_BASE}/ws/${sessionId}`)
       
       this.connection.onopen = () => {
         console.log('🔌 WebSocket connected to backend')
@@ -225,7 +231,13 @@ const websocket = {
 // Video Processing Functions
 const videoProcessing = {
   lastFrameTime: 0,
-  frameInterval: 1000, // Send frame every 1 second for processing
+  frameInterval: 2000, // Send frame every 2 seconds for AI processing (reduced load)
+  displayFps: 30, // Keep smooth video display
+  processingQueue: [],
+  isProcessing: false,
+  performanceMode: 'balanced', // 'fast', 'balanced', 'accurate'
+  lastProcessingTime: 0,
+  actualFps: 30,
 
   async initializeCamera() {
     try {
@@ -259,10 +271,21 @@ const videoProcessing = {
   },
 
   startDetection() {
+    // Adjust frame interval based on performance mode
+    const intervals = {
+      fast: 3000,      // Process every 3 seconds - fastest
+      balanced: 2000,  // Process every 2 seconds - default
+      accurate: 1000   // Process every 1 second - most accurate
+    }
+    
+    this.frameInterval = intervals[this.performanceMode] || intervals.balanced
+    
     // Start real-time frame capture and processing
     AppState.detectionInterval = setInterval(() => {
       this.captureAndProcessFrame()
     }, this.frameInterval)
+    
+    console.log(`🚀 Detection started in ${this.performanceMode} mode (${this.frameInterval}ms interval)`)
   },
 
   stopDetection() {
@@ -274,41 +297,67 @@ const videoProcessing = {
 
   captureAndProcessFrame() {
     try {
+      // Skip if already processing to prevent queue buildup
+      if (this.isProcessing) {
+        console.log('Skipping frame - still processing previous')
+        return
+      }
+      
       if (!elements.videoElement.videoWidth || !elements.videoElement.videoHeight) {
         return
       }
+
+      this.isProcessing = true
 
       // Create canvas to capture frame
       const canvas = elements.canvasElement
       const ctx = canvas.getContext('2d')
       
-      // Set canvas size to match video
-      canvas.width = elements.videoElement.videoWidth
-      canvas.height = elements.videoElement.videoHeight
+      // Reduce resolution for faster processing (50% of original)
+      const targetWidth = Math.floor(elements.videoElement.videoWidth * 0.5)
+      const targetHeight = Math.floor(elements.videoElement.videoHeight * 0.5)
       
-      // Draw current video frame to canvas
-      ctx.drawImage(elements.videoElement, 0, 0, canvas.width, canvas.height)
+      // Set canvas size to reduced resolution
+      canvas.width = targetWidth
+      canvas.height = targetHeight
       
-      // Convert to base64 image data
-      const imageData = canvas.toDataURL('image/jpeg', 0.8)
+      // Draw current video frame to canvas (scaled down)
+      ctx.drawImage(elements.videoElement, 0, 0, targetWidth, targetHeight)
+      
+      // Convert to base64 with lower quality for faster transfer
+      const imageData = canvas.toDataURL('image/jpeg', 0.6)
       
       // Send to backend for AI processing
       websocket.sendFrame(imageData)
       
+      // Reset processing flag after a delay
+      setTimeout(() => {
+        this.isProcessing = false
+      }, 500) // Allow 500ms for processing
+      
     } catch (error) {
       console.error('Error capturing frame:', error)
+      this.isProcessing = false
     }
   },
 
   handleDetectionResult(result) {
     try {
+      // Calculate actual FPS based on processing time
+      const currentTime = Date.now()
+      if (this.lastProcessingTime) {
+        const timeDiff = currentTime - this.lastProcessingTime
+        this.actualFps = Math.round(1000 / timeDiff)
+      }
+      this.lastProcessingTime = currentTime
+      
       // Convert backend result to frontend format
       const frontendData = {
         faceCount: result.face_count || 0,
         focusStatus: this.mapFocusStatus(result.focus_status),
         drowsinessScore: result.drowsiness_score || 0.0,
         objectCount: result.suspicious_count || 0,
-        fps: 30 // Placeholder, backend doesn't send FPS
+        fps: this.actualFps || 30
       }
       
       this.updateMetrics(frontendData)
@@ -665,7 +714,7 @@ const sessionManager = {
         utils.showLoading(true)
       }
       
-      const downloadUrl = `http://localhost:8000/export/${sessionId}/${format}`
+      const downloadUrl = `${API_BASE}/export/${sessionId}/${format}`
       console.log(`Downloading from: ${downloadUrl}`)
       
       const response = await fetch(downloadUrl, {
@@ -807,7 +856,7 @@ const initializeEventListeners = () => {
 const sessionHistory = {
   async loadCompletedSessions() {
     try {
-      const response = await fetch('http://localhost:8000/sessions/completed')
+      const response = await fetch(`${API_BASE}/sessions/completed`)
       if (!response.ok) {
         throw new Error('Failed to load session history')
       }
