@@ -1,0 +1,61 @@
+{
+  "session_data": {
+    "session_id": "session_1758191914335_2dtaxcot7",
+    "candidate_name": "farhan",
+    "session_type": "technical",
+    "start_time": "2025-09-18T16:08:34.356381",
+    "end_time": "2025-09-18T16:08:44.692923",
+    "total_frames_processed": 0,
+    "total_alerts": 0,
+    "average_integrity_score": 100.0,
+    "face_detection_summary": {},
+    "object_detection_summary": {},
+    "focus_detection_summary": {}
+  },
+  "alerts": [
+    {
+      "timestamp": "2025-09-18T16:08:39.821595",
+      "session_id": "session_1758191914335_2dtaxcot7",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:08:39.821444"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:08:40.847042",
+      "session_id": "session_1758191914335_2dtaxcot7",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:08:40.846894"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:08:41.836137",
+      "session_id": "session_1758191914335_2dtaxcot7",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:08:41.836091"
+      },
+      "frame_number": null
+    }
+  ],
+  "detection_timeline": [],
+  "duration_minutes": 0.1722757,
+  "total_violations": 3,
+  "violation_breakdown": {
+    "no_face_detected": 3
+  },
+  "integrity_trend": [],
+  "recommendations": [
+    "Maintain consistent positioning in front of the camera"
+  ],
+  "risk_level": "low"
+}

@@ -1,0 +1,525 @@
+{
+  "session_data": {
+    "session_id": "session_1758192415570_7bddokhbv",
+    "candidate_name": "farhan",
+    "session_type": "behavioral",
+    "start_time": "2025-09-18T16:16:55.601640",
+    "end_time": "2025-09-18T16:17:35.171935",
+    "total_frames_processed": 0,
+    "total_alerts": 0,
+    "average_integrity_score": 100.0,
+    "face_detection_summary": {},
+    "object_detection_summary": {},
+    "focus_detection_summary": {}
+  },
+  "alerts": [
+    {
+      "timestamp": "2025-09-18T16:16:58.229596",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:16:58.229533"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:16:58.229602",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: laptop",
+      "details": {
+        "objects": [
+          "laptop"
+        ]
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:04.078077",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: laptop",
+      "details": {
+        "objects": [
+          "laptop"
+        ]
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:05.069177",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: laptop",
+      "details": {
+        "objects": [
+          "laptop"
+        ]
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:06.069191",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: laptop",
+      "details": {
+        "objects": [
+          "laptop"
+        ]
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:07.058033",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: laptop",
+      "details": {
+        "objects": [
+          "laptop"
+        ]
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:09.057372",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: laptop",
+      "details": {
+        "objects": [
+          "laptop"
+        ]
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:10.024939",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: laptop",
+      "details": {
+        "objects": [
+          "laptop"
+        ]
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:11.041670",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:17:11.041612"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:13.069903",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:17:13.069791"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:14.073363",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:17:14.073328"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:15.076434",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:17:15.076389"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:17.041250",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:17:17.041210"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:18.102638",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:17:18.102439"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:22.067059",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:17:22.066983"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:22.067063",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: cell phone",
+      "details": {
+        "objects": [
+          "cell phone"
+        ]
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:23.081018",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:17:23.080973"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:23.081022",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: cell phone",
+      "details": {
+        "objects": [
+          "cell phone"
+        ]
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:24.073256",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:17:24.073202"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:24.073259",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: cell phone",
+      "details": {
+        "objects": [
+          "cell phone"
+        ]
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:25.097844",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:17:25.097803"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:25.097847",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: cell phone",
+      "details": {
+        "objects": [
+          "cell phone"
+        ]
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:26.067810",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:17:26.067704"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:27.083595",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:17:27.083526"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:28.061776",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:17:28.061720"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:29.070790",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:17:29.070738"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:30.064809",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:17:30.064772"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:31.103449",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:17:31.103388"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:32.061970",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:17:32.061933"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:33.060714",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:17:33.060672"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:16:58.229602",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: laptop",
+      "details": {
+        "objects": [
+          "laptop"
+        ]
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:04.078077",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: laptop",
+      "details": {
+        "objects": [
+          "laptop"
+        ]
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:05.069177",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: laptop",
+      "details": {
+        "objects": [
+          "laptop"
+        ]
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:06.069191",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: laptop",
+      "details": {
+        "objects": [
+          "laptop"
+        ]
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:07.058033",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: laptop",
+      "details": {
+        "objects": [
+          "laptop"
+        ]
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:09.057372",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: laptop",
+      "details": {
+        "objects": [
+          "laptop"
+        ]
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:10.024939",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: laptop",
+      "details": {
+        "objects": [
+          "laptop"
+        ]
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:22.067063",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: cell phone",
+      "details": {
+        "objects": [
+          "cell phone"
+        ]
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:23.081022",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: cell phone",
+      "details": {
+        "objects": [
+          "cell phone"
+        ]
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:24.073259",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: cell phone",
+      "details": {
+        "objects": [
+          "cell phone"
+        ]
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:17:25.097847",
+      "session_id": "session_1758192415570_7bddokhbv",
+      "alert_type": "suspicious_object",
+      "severity": "high",
+      "message": "Suspicious object detected: cell phone",
+      "details": {
+        "objects": [
+          "cell phone"
+        ]
+      },
+      "frame_number": null
+    }
+  ],
+  "detection_timeline": [],
+  "duration_minutes": 0.6595049166666667,
+  "total_violations": 41,
+  "violation_breakdown": {
+    "no_face_detected": 19,
+    "suspicious_object": 22
+  },
+  "integrity_trend": [],
+  "recommendations": [
+    "Remove all electronic devices and unauthorized materials from the testing area",
+    "Maintain consistent positioning in front of the camera"
+  ],
+  "risk_level": "critical"
+}

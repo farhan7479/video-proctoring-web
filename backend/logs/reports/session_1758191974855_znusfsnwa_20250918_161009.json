@@ -1,0 +1,184 @@
+{
+  "session_data": {
+    "session_id": "session_1758191974855_znusfsnwa",
+    "candidate_name": "farhan",
+    "session_type": "technical",
+    "start_time": "2025-09-18T16:09:34.873872",
+    "end_time": "2025-09-18T16:10:09.128265",
+    "total_frames_processed": 0,
+    "total_alerts": 0,
+    "average_integrity_score": 100.0,
+    "face_detection_summary": {},
+    "object_detection_summary": {},
+    "focus_detection_summary": {}
+  },
+  "alerts": [
+    {
+      "timestamp": "2025-09-18T16:09:46.243462",
+      "session_id": "session_1758191974855_znusfsnwa",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:09:46.242610"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:09:47.237058",
+      "session_id": "session_1758191974855_znusfsnwa",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:09:47.237019"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:09:48.231900",
+      "session_id": "session_1758191974855_znusfsnwa",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:09:48.231866"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:09:49.237902",
+      "session_id": "session_1758191974855_znusfsnwa",
+      "alert_type": "no_face_detected",
+      "severity": "medium",
+      "message": "No face detected in frame",
+      "details": {
+        "timestamp": "2025-09-18T16:09:49.237863"
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:09:50.297379",
+      "session_id": "session_1758191974855_znusfsnwa",
+      "alert_type": "multiple_faces",
+      "severity": "high",
+      "message": "Multiple faces detected (2)",
+      "details": {
+        "count": 2
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:09:51.310304",
+      "session_id": "session_1758191974855_znusfsnwa",
+      "alert_type": "multiple_faces",
+      "severity": "high",
+      "message": "Multiple faces detected (2)",
+      "details": {
+        "count": 2
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:09:52.334655",
+      "session_id": "session_1758191974855_znusfsnwa",
+      "alert_type": "multiple_faces",
+      "severity": "high",
+      "message": "Multiple faces detected (2)",
+      "details": {
+        "count": 2
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:09:54.302355",
+      "session_id": "session_1758191974855_znusfsnwa",
+      "alert_type": "multiple_faces",
+      "severity": "high",
+      "message": "Multiple faces detected (2)",
+      "details": {
+        "count": 2
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:09:55.312821",
+      "session_id": "session_1758191974855_znusfsnwa",
+      "alert_type": "multiple_faces",
+      "severity": "high",
+      "message": "Multiple faces detected (2)",
+      "details": {
+        "count": 2
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:09:50.297379",
+      "session_id": "session_1758191974855_znusfsnwa",
+      "alert_type": "multiple_faces",
+      "severity": "high",
+      "message": "Multiple faces detected (2)",
+      "details": {
+        "count": 2
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:09:51.310304",
+      "session_id": "session_1758191974855_znusfsnwa",
+      "alert_type": "multiple_faces",
+      "severity": "high",
+      "message": "Multiple faces detected (2)",
+      "details": {
+        "count": 2
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:09:52.334655",
+      "session_id": "session_1758191974855_znusfsnwa",
+      "alert_type": "multiple_faces",
+      "severity": "high",
+      "message": "Multiple faces detected (2)",
+      "details": {
+        "count": 2
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:09:54.302355",
+      "session_id": "session_1758191974855_znusfsnwa",
+      "alert_type": "multiple_faces",
+      "severity": "high",
+      "message": "Multiple faces detected (2)",
+      "details": {
+        "count": 2
+      },
+      "frame_number": null
+    },
+    {
+      "timestamp": "2025-09-18T16:09:55.312821",
+      "session_id": "session_1758191974855_znusfsnwa",
+      "alert_type": "multiple_faces",
+      "severity": "high",
+      "message": "Multiple faces detected (2)",
+      "details": {
+        "count": 2
+      },
+      "frame_number": null
+    }
+  ],
+  "detection_timeline": [],
+  "duration_minutes": 0.57090655,
+  "total_violations": 14,
+  "violation_breakdown": {
+    "no_face_detected": 4,
+    "multiple_faces": 10
+  },
+  "integrity_trend": [],
+  "recommendations": [
+    "Ensure only the candidate is visible in the camera frame",
+    "Maintain consistent positioning in front of the camera"
+  ],
+  "risk_level": "critical"
+}
