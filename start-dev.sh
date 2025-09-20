@@ -11,7 +11,7 @@ PROJECT_DIR=$(pwd)
 
 # Start backend
 echo "📡 Starting Backend (Python FastAPI)..."
-cd $PROJECT_DIR/backend && $PROJECT_DIR/.venv/bin/python main.py &
+cd $PROJECT_DIR/backend && python3 main.py &
 BACKEND_PID=$!
 
 # Wait for backend to start
